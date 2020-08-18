@@ -1,6 +1,9 @@
 package com.vnscriptkid;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Queue;
 
 public class Main {
 
@@ -57,7 +60,15 @@ public class Main {
         System.out.println("is empty: " + stack.isEmpty());
     }
 
+    public static void reverseAQueue() {
+        Queue queue = new ArrayDeque<Integer>();
+        queue.addAll(List.of(1,2,3));
+        System.out.println(queue);
+        ReverseQueue.reverse(queue);
+        System.out.println(queue);
+    }
+
     public static void main(String[] args) {
-        stackImplementation();
+        reverseAQueue();
     }
 }

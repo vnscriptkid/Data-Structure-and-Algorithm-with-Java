@@ -11,20 +11,25 @@ public class PriorityQueue {
         count = 0;
     }
 
-    public void enqueue(int addedValue) {
-        if (count == items.length)
+    public void enqueue(int value) {
+        if (isFull())
             throw new IllegalStateException();
 
+        int indexToInsert = shiftRightToInsert(value);
+        items[indexToInsert] = value;
+        count++;
+    }
+
+    private int shiftRightToInsert(int value) {
         int i;
         for (i = count - 1; i >= 0; i--) {
             int current = items[i];
-            if (addedValue < current)
+            if (value < current)
                 items[i + 1] = current;
             else
                 break;
         }
-        items[i + 1] = addedValue;
-        count++;
+        return i + 1;
     }
 
     public boolean isEmpty() {
@@ -39,6 +44,10 @@ public class PriorityQueue {
 
     public int peek() {
         return items[count - 1];
+    }
+
+    private boolean isFull() {
+        return count == items.length;
     }
 
     @Override

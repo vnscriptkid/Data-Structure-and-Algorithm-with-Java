@@ -60,6 +60,25 @@ public class Main {
         System.out.println("is empty: " + stack.isEmpty());
     }
 
+    public static void buildQueueUsingArray() {
+        MyArrayDeque queue = new MyArrayDeque();
+        System.out.println("is empty: " + queue.isEmpty());
+        System.out.println("is full: " + queue.isFull());
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        // 3 4 6
+        System.out.println(queue);
+        queue.dequeue();
+        queue.dequeue();
+        queue.enqueue(5);
+        queue.enqueue(6); // 5 -> 0
+        queue.enqueue(7); // 6 -> 1
+        System.out.println(queue.size());
+        System.out.println(queue);
+    }
+
     public static void reverseAQueue() {
         Queue queue = new ArrayDeque<Integer>();
         queue.addAll(List.of(1,2,3));
@@ -69,6 +88,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        reverseAQueue();
+        buildQueueUsingArray();
     }
 }

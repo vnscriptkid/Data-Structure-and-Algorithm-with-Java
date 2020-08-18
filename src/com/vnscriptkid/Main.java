@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) {
-	// write your code here
+    public static void linkedlist() {
         LinkedList list = new LinkedList();
         System.out.println(Arrays.toString(list.toArray()));
         list.addFirst(3);
@@ -27,5 +26,14 @@ public class Main {
         list.print();
         System.out.println("count now: " + list.size());
         System.out.println(Arrays.toString(list.toArray()));
+    }
+
+    public static void reverseString() {
+        String result = ReverseStringUsingStack.reverse("thanh");
+        System.out.println(result);
+    }
+
+    public static void main(String[] args) {
+        reverseString();
     }
 }

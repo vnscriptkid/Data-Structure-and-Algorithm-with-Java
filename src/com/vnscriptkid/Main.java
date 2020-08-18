@@ -40,7 +40,24 @@ public class Main {
         System.out.println(result);
     }
 
+    public static void stackImplementation() {
+        Stack stack = new Stack();
+        System.out.println("is empty: " + stack.isEmpty());
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println(stack);
+        stack.print();
+        System.out.println("top now: " + stack.peek());
+        stack.pop();
+        System.out.println("pop one, top now: " + stack.peek());
+        System.out.println("is empty: " + stack.isEmpty());
+        stack.pop();
+        stack.pop();
+        System.out.println("is empty: " + stack.isEmpty());
+    }
+
     public static void main(String[] args) {
-        expressionEvaluation();
+        stackImplementation();
     }
 }

@@ -87,7 +87,20 @@ public class Main {
         System.out.println(queue);
     }
 
+    public static void queueUsingStack() {
+        QueueUsingStack queue = new QueueUsingStack();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        System.out.println(queue);
+        queue.dequeue();
+        System.out.println(queue.peek());
+        queue.enqueue(4);
+        queue.dequeue();
+        System.out.println(queue.peek());
+    }
+
     public static void main(String[] args) {
-        buildQueueUsingArray();
+        queueUsingStack();
     }
 }

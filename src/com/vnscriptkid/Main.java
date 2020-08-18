@@ -100,7 +100,19 @@ public class Main {
         System.out.println(queue.peek());
     }
 
+    public static void usePriorityQueue() {
+        PriorityQueue queue = new PriorityQueue(20);
+        queue.enqueue(3);
+        queue.enqueue(7);
+        queue.enqueue(1);
+        queue.enqueue(10);
+        System.out.println(queue);
+        queue.dequeue();
+        queue.dequeue();
+        System.out.println(queue);
+    }
+
     public static void main(String[] args) {
-        queueUsingStack();
+        usePriorityQueue();
     }
 }

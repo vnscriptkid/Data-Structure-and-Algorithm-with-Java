@@ -28,12 +28,19 @@ public class Main {
         System.out.println(Arrays.toString(list.toArray()));
     }
 
+    public static void expressionEvaluation() {
+        boolean shouldTrue = BalancedExpression.check("{([thanh]<cool>)[boy]}");
+        boolean shouldFalse = BalancedExpression.check("([thanh]<cool>)[boy}");
+        System.out.println("shouldTrue: " + shouldTrue);
+        System.out.println("shouldFalse: " + shouldFalse);
+    }
+
     public static void reverseString() {
         String result = ReverseStringUsingStack.reverse("thanh");
         System.out.println(result);
     }
 
     public static void main(String[] args) {
-        reverseString();
+        expressionEvaluation();
     }
 }

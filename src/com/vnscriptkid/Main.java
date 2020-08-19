@@ -122,7 +122,24 @@ public class Main {
         System.out.println(FirstRepeatedChar.find("he like running"));
     }
 
+    public static void hashTableUsingChaining() {
+        HashTable hashTable = new HashTable();
+        hashTable.put(2, "thanh");
+        hashTable.put(12, "link");
+        hashTable.put(3, "phuong");
+        hashTable.put(4, "nghi");
+        hashTable.put(5, "bich");
+        hashTable.put(22, "hi");
+        System.out.println(hashTable);
+//        hashTable.put(12, "update 12");
+//        // 2-"thanh" 12-"update 12" 22-"hi"
+//        hashTable.remove(12);
+//        System.out.println(hashTable.get(12));
+//        System.out.println(hashTable.get(22));
+//        hashTable.remove(5);
+    }
+
     public static void main(String[] args) {
-        useHashSet();
+        hashTableUsingChaining();
     }
 }

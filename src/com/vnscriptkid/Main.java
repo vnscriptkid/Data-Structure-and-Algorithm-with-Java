@@ -117,7 +117,12 @@ public class Main {
         System.out.println(FirstNonRepeatedChar.findInString("i love iphone"));
     }
 
+    public static void useHashSet() {
+        System.out.println(FirstRepeatedChar.find("nguyen trung thanh"));
+        System.out.println(FirstRepeatedChar.find("he like running"));
+    }
+
     public static void main(String[] args) {
-        useHashMap();
+        useHashSet();
     }
 }

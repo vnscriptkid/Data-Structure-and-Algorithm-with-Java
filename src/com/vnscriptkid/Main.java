@@ -139,7 +139,20 @@ public class Main {
 //        hashTable.remove(5);
     }
 
+    public static void useBinaryTree() {
+        BinaryTree tree = new BinaryTree();
+        tree.insert(5);
+        tree.insert(2);
+        tree.insert(9);
+        tree.insert(6);
+        tree.insert(10);
+        System.out.println(tree);
+        System.out.println(tree.find(10));
+        System.out.println(tree.find(6));
+        System.out.println(tree.find(7));
+    }
+
     public static void main(String[] args) {
-        hashTableUsingChaining();
+        useBinaryTree();
     }
 }

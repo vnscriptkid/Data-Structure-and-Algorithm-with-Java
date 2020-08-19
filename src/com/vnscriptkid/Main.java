@@ -152,7 +152,12 @@ public class Main {
         System.out.println(tree.find(7));
     }
 
+    public static void useFactorial() {
+        System.out.println(Factorial.usingLoop(4));
+        System.out.println(Factorial.usingRecursion(4));
+    }
+
     public static void main(String[] args) {
-        useBinaryTree();
+        useFactorial();
     }
 }

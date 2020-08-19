@@ -112,7 +112,12 @@ public class Main {
         System.out.println(queue);
     }
 
+    public static void useHashMap() {
+        System.out.println(FirstNonRepeatedChar.findInString("nguyen trung thanh"));
+        System.out.println(FirstNonRepeatedChar.findInString("i love iphone"));
+    }
+
     public static void main(String[] args) {
-        usePriorityQueue();
+        useHashMap();
     }
 }

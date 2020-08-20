@@ -1,5 +1,7 @@
 package com.vnscriptkid;
 
+import java.util.Objects;
+
 public class BinaryTree {
     private class Node {
         private int value;
@@ -17,6 +19,10 @@ public class BinaryTree {
 
     public BinaryTree() {
         root = null;
+    }
+
+    public BinaryTree(Node root) {
+        this.root = root;
     }
 
     public void insert(int value) {
@@ -153,6 +159,34 @@ public class BinaryTree {
             current = current.left;
         }
         return current.value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BinaryTree that = (BinaryTree) o;
+        return equals(root, that.root);
+    }
+
+    private boolean equals(Node node1, Node node2) {
+        // both null
+        if (node1 == null && node2 == null)
+            return true;
+        // either is null
+        if (node1 == null || node2 == null)
+            return false;
+        // both not null
+        boolean leftEqual = equals(node1.left, node2.left);
+        boolean rightEqual = equals(node1.right, node2.right);
+
+        return leftEqual && rightEqual && node1.value == node2.value;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(root);
     }
 
     @Override

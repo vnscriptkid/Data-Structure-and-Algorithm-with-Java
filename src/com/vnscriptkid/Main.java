@@ -151,6 +151,14 @@ public class Main {
         System.out.println(tree.height());;
         System.out.println(tree.minValue());
         System.out.println(tree.minValueFast());
+        BinaryTree another = new BinaryTree();
+        another.insert(5);
+        another.insert(2);
+        another.insert(9);
+        another.insert(6);
+        another.insert(10);
+        another.insert(3);
+        System.out.println(tree.equals(another));;
     }
 
     public static void useFactorial() {

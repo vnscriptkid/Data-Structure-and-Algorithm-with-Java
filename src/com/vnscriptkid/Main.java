@@ -131,12 +131,12 @@ public class Main {
         hashTable.put(5, "bich");
         hashTable.put(22, "hi");
         System.out.println(hashTable);
-//        hashTable.put(12, "update 12");
-//        // 2-"thanh" 12-"update 12" 22-"hi"
-//        hashTable.remove(12);
-//        System.out.println(hashTable.get(12));
-//        System.out.println(hashTable.get(22));
-//        hashTable.remove(5);
+        hashTable.put(12, "update 12");
+        // 2-"thanh" 12-"update 12" 22-"hi"
+        hashTable.remove(12);
+        System.out.println(hashTable.get(12));
+        System.out.println(hashTable.get(22));
+        hashTable.remove(5);
     }
 
     public static void useBinaryTree() {
@@ -146,10 +146,7 @@ public class Main {
         tree.insert(9);
         tree.insert(6);
         tree.insert(10);
-        System.out.println(tree);
-        System.out.println(tree.find(10));
-        System.out.println(tree.find(6));
-        System.out.println(tree.find(7));
+        tree.traversePostOrder();
     }
 
     public static void useFactorial() {
@@ -158,6 +155,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        useFactorial();
+        useBinaryTree();
     }
 }

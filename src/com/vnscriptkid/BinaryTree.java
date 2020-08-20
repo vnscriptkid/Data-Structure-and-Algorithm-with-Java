@@ -108,6 +108,18 @@ public class BinaryTree {
         System.out.println(root.value);
     }
 
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node root) {
+        if (root == null) return -1;
+        if (root.left == null && root.right == null) return 0;
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+
     @Override
     public String toString() {
         return "BinaryTree{" +

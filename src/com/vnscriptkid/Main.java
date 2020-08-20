@@ -146,7 +146,9 @@ public class Main {
         tree.insert(9);
         tree.insert(6);
         tree.insert(10);
-        tree.traversePostOrder();
+        tree.insert(3);
+        tree.insert(4);
+        System.out.println(tree.height());;
     }
 
     public static void useFactorial() {

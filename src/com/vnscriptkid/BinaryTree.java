@@ -114,10 +114,45 @@ public class BinaryTree {
 
     private int height(Node root) {
         if (root == null) return -1;
-        if (root.left == null && root.right == null) return 0;
+        if (isLeafNode()) return 0;
         int leftHeight = height(root.left);
         int rightHeight = height(root.right);
         return 1 + Math.max(leftHeight, rightHeight);
+    }
+
+    public int minValue() {
+        if (root == null)
+            throw new IllegalStateException();
+        return minValue(root);
+    }
+
+    private int minValue(Node root) {
+        if (root == null)
+            return Integer.MAX_VALUE;
+        if (isLeafNode())
+            return root.value;
+
+        int leftMin = minValue(root.left);
+        int rightMin = minValue(root.right);
+
+        return Math.min(Math.min(leftMin, rightMin), root.value);
+    }
+
+    private boolean isLeafNode() {
+        return root.left == null && root.right == null;
+    }
+
+
+    public int minValueFast() {
+        return minValueFast(root);
+    }
+
+    private int minValueFast(Node root) {
+        Node current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current.value;
     }
 
     @Override

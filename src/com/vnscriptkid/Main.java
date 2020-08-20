@@ -149,6 +149,8 @@ public class Main {
         tree.insert(3);
         tree.insert(4);
         System.out.println(tree.height());;
+        System.out.println(tree.minValue());
+        System.out.println(tree.minValueFast());
     }
 
     public static void useFactorial() {

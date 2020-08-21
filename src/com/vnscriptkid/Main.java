@@ -158,7 +158,10 @@ public class Main {
         another.insert(6);
         another.insert(10);
         another.insert(3);
-        System.out.println(tree.equals(another));;
+        System.out.println(tree.equals(another));
+        System.out.println(tree.isBinaryTree());
+        tree.swapRoot();
+        System.out.println(tree.isBinaryTree());
     }
 
     public static void useFactorial() {

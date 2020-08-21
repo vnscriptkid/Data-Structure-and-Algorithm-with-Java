@@ -161,6 +161,29 @@ public class BinaryTree {
         return current.value;
     }
 
+    public boolean isBinaryTree() {
+        return isBinaryTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBinaryTree(Node rootNode, int min, int max) {
+        if (rootNode == null)
+            return true;
+
+        boolean rootInRange = rootNode.value > min && rootNode.value < max;
+        if (!rootInRange)
+            return false;
+
+        boolean leftInRange = isBinaryTree(rootNode.left, min, rootNode.value);
+        if (!leftInRange)
+            return false;
+
+        boolean rightInRange = isBinaryTree(rootNode.right, rootNode.value, max);
+        if (!rightInRange)
+            return false;
+
+        return true;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -181,6 +204,12 @@ public class BinaryTree {
         boolean rightEqual = equals(node1.right, node2.right);
 
         return leftEqual && rightEqual && node1.value == node2.value;
+    }
+
+    public void swapRoot() {
+        Node temp = root.left;
+        root.left = root.right;
+        root.right = temp;
     }
 
 

@@ -230,6 +230,17 @@ public class BinaryTree {
         kDistanceFromRoot(node.right, distance - 1, list);
     }
 
+    public void traverseLevelOrder() {
+        int height = height();
+        for (int distance = 0; distance <= height; distance++) {
+            ArrayList<Integer> list = new ArrayList<>();
+            kDistanceFromRoot(root, distance, list);
+            for (int item : list) {
+                System.out.print(item + "; ");
+            }
+        }
+    }
+
 
     @Override
     public int hashCode() {

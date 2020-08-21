@@ -1,5 +1,6 @@
 package com.vnscriptkid;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class BinaryTree {
@@ -210,6 +211,23 @@ public class BinaryTree {
         Node temp = root.left;
         root.left = root.right;
         root.right = temp;
+    }
+
+    public ArrayList<Integer> kDistanceFromRoot(int distance) {
+        ArrayList<Integer> list = new ArrayList<>();
+        kDistanceFromRoot(root, distance, list);
+        return list;
+    }
+
+    private void kDistanceFromRoot(Node node, int distance, ArrayList<Integer> list) {
+        if (node == null)
+            return;
+        if (distance == 0) {
+            list.add(node.value);
+            return;
+        }
+        kDistanceFromRoot(node.left, distance - 1, list);
+        kDistanceFromRoot(node.right, distance - 1, list);
     }
 
 

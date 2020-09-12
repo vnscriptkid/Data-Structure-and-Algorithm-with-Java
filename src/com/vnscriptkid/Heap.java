@@ -24,11 +24,12 @@ public class Heap {
         return (int) Math.floor(parentIndex);
     }
 
-    public void remove() {
+    public int remove() {
         if (count == 0) {
             throw new IllegalStateException();
         }
 
+        int removedItem = values[0];
         int lastItem = values[--count];
         values[0] = lastItem;
         int currentIndex = 0;
@@ -56,6 +57,7 @@ public class Heap {
             }
             break;
         }
+        return removedItem;
     }
 
     public boolean isValidNode(int index) {

@@ -182,7 +182,20 @@ public class Main {
         System.out.println(heap);
     }
 
+    public static void heapSort() {
+        int[] arr = {5,2,3,8,6,7,17,12};
+        Heap heap = new Heap();
+        for (int i : arr) {
+            heap.insert(i);
+        }
+        int[] sortedArr = new int[arr.length];
+        for (int i = 0; i < sortedArr.length; i++) {
+            sortedArr[i] = heap.remove();
+        }
+        System.out.println(Arrays.toString(sortedArr));
+    }
+
     public static void main(String[] args) {
-        useHeap();
+        heapSort();
     }
 }

@@ -11,6 +11,16 @@ public class Heap {
         count = 0;
     }
 
+    public void heapify(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            values[i] = arr[i];
+        }
+        count = arr.length;
+        for (int i = 0; i < count; i++) {
+            bubbleUp(i);
+        }
+    }
+
     public boolean isEmpty() {
         return count == 0;
     }
@@ -72,15 +82,17 @@ public class Heap {
         if (count == values.length) {
             throw new IllegalStateException();
         }
-
         values[count++] = item;
+        bubbleUp(count - 1);
+    }
 
-        int parentIndex = indexOfParent(count - 1);
-        int currentIndex = count - 1;
+    public void bubbleUp(int currentIndex) {
+        int parentIndex = indexOfParent(currentIndex);
+        int itemToBubble = values[currentIndex];
         while (true) {
             if (parentIndex < 0) break;
             int parent = values[parentIndex];
-            if (item > parent) {
+            if (itemToBubble > parent) {
                 swap(parentIndex, currentIndex);
                 // reset index
                 currentIndex = parentIndex;

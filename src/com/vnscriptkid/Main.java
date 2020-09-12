@@ -195,6 +195,13 @@ public class Main {
         System.out.println(Arrays.toString(sortedArr));
     }
 
+    public static void usingHeapify() {
+        int[] arr = {5,2,3,8,6,7,17,12};
+        Heap heap = new Heap();
+        heap.heapify(arr);
+        System.out.println(heap);
+    }
+
     public static void main(String[] args) {
         heapSort();
     }

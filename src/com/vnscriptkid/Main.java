@@ -221,7 +221,14 @@ public class Main {
         trie.insert("cant");
     }
 
+    public static void trieUsingHashTable() {
+        TrieUsingHashTable trie = new TrieUsingHashTable();
+        trie.insert("can");
+        trie.insert("cat");
+        trie.insert("cant");
+    }
+
     public static void main(String[] args) {
-        useTrie();
+        trieUsingHashTable();
     }
 }

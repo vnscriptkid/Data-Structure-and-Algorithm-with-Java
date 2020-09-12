@@ -11,6 +11,10 @@ public class Heap {
         count = 0;
     }
 
+    public boolean isEmpty() {
+        return count == 0;
+    }
+
     public int leftIndex(int index) {
         return 2 * index + 1;
     }

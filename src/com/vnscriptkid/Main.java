@@ -202,7 +202,20 @@ public class Main {
         System.out.println(heap);
     }
 
+    public static void kLargestOfArray(int [] arr, int k) {
+        Heap heap = new Heap();
+        for (int i : arr) {
+            heap.insert(i);
+        }
+        int[] kLargest = new int[k];
+        for (int i = 0; i < k; i++) {
+            kLargest[i] = heap.remove();
+        }
+        System.out.println(Arrays.toString(kLargest));
+    }
+
     public static void main(String[] args) {
-        heapSort();
+        int[] arr = {1,5,2,3,7,8,12,19,23,16};
+        kLargestOfArray(arr, 5);
     }
 }

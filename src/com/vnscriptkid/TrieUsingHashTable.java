@@ -27,6 +27,10 @@ public class TrieUsingHashTable {
         public void endWordHere() {
             this.isEndOfWord = true;
         }
+
+        public Node[] getChildren() {
+            return children.values().toArray(new Node[0]);
+        }
     }
 
     private Node root;
@@ -62,5 +66,27 @@ public class TrieUsingHashTable {
             current = current.getChildNode(c);
         }
         return current.isEndOfWord;
+    }
+
+    public void traversePreOrder() {
+        traversePreOrder(root);
+    }
+
+    private void traversePreOrder(Node root) {
+        System.out.print(root.value);
+        for (Node child : root.getChildren()) {
+            traversePreOrder(child);
+        }
+    }
+
+    public void traversePostOrder() {
+        traversePostOrder(root);
+    }
+
+    private void traversePostOrder(Node root) {
+        for (Node child : root.getChildren()) {
+            traversePostOrder(child);
+        }
+        System.out.print(root.value);
     }
 }

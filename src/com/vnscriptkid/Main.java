@@ -231,7 +231,15 @@ public class Main {
         System.out.println(trie.contains("ca"));
     }
 
+    public static void traverseTrie() {
+        TrieUsingHashTable trie = new TrieUsingHashTable();
+        trie.insert("can");
+        trie.traversePreOrder();
+        System.out.println("");
+        trie.traversePostOrder();
+    }
+
     public static void main(String[] args) {
-        trieUsingHashTable();
+        traverseTrie();
     }
 }

@@ -1,5 +1,4 @@
 package com.vnscriptkid;
-
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.List;
@@ -172,7 +171,18 @@ public class Main {
         System.out.println(Factorial.usingRecursion(4));
     }
 
+    public static void useHeap() {
+        Heap heap = new Heap();
+        heap.insert(10);
+        heap.insert(5);
+        heap.insert(17);
+        heap.insert(4);
+        heap.insert(22);
+        heap.remove();
+        System.out.println(heap);
+    }
+
     public static void main(String[] args) {
-        useBinaryTree();
+        useHeap();
     }
 }

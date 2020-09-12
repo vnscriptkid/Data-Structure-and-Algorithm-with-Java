@@ -214,8 +214,14 @@ public class Main {
         System.out.println(Arrays.toString(kLargest));
     }
 
+    public static void useTrie() {
+        TrieUsingArray trie = new TrieUsingArray();
+        trie.insert("can");
+        trie.insert("cat");
+        trie.insert("cant");
+    }
+
     public static void main(String[] args) {
-        int[] arr = {1,5,2,3,7,8,12,19,23,16};
-        kLargestOfArray(arr, 5);
+        useTrie();
     }
 }

@@ -45,4 +45,22 @@ public class TrieUsingHashTable {
         }
         current.endWordHere();
     }
+
+    public boolean isEmpty() {
+        return root.children.isEmpty();
+    }
+
+    public boolean contains(String word) {
+        if (isEmpty())
+            throw new IllegalStateException();
+        if (word.isEmpty())
+            throw new IllegalArgumentException();
+        Node current = root;
+        for (char c : word.toCharArray()) {
+            if (!current.containsKey(c))
+                return false;
+            current = current.getChildNode(c);
+        }
+        return current.isEndOfWord;
+    }
 }

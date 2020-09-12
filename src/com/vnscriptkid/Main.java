@@ -226,6 +226,9 @@ public class Main {
         trie.insert("can");
         trie.insert("cat");
         trie.insert("cant");
+        System.out.println(trie.contains("canada"));
+        System.out.println(trie.contains("can"));
+        System.out.println(trie.contains("ca"));
     }
 
     public static void main(String[] args) {

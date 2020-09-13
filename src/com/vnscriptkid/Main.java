@@ -233,7 +233,11 @@ public class Main {
 
     public static void traverseTrie() {
         TrieUsingHashTable trie = new TrieUsingHashTable();
-        trie.insert("can");
+        trie.insert("car");
+        trie.insert("care");
+        trie.insert("careful");
+        trie.insert("card");
+        trie.insert("egg");
         trie.traversePreOrder();
         System.out.println("");
         trie.traversePostOrder();
@@ -250,7 +254,17 @@ public class Main {
         System.out.println(trie.contains("care"));
     }
 
+    public static void autoCompletion() {
+        TrieUsingHashTable trie = new TrieUsingHashTable();
+        trie.insert("car");
+        trie.insert("care");
+        trie.insert("careful");
+        trie.insert("card");
+        trie.insert("egg");
+        System.out.println(trie.autoCompletion("car").toString());
+    }
+
     public static void main(String[] args) {
-        deleteWordInTrie();
+        autoCompletion();
     }
 }

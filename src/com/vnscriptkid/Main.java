@@ -239,7 +239,18 @@ public class Main {
         trie.traversePostOrder();
     }
 
+    public static void deleteWordInTrie() {
+        TrieUsingHashTable trie = new TrieUsingHashTable();
+        trie.insert("cat");
+        trie.insert("cant");
+        trie.insert("care");
+        trie.delete("care");
+        System.out.println(trie.contains("cat"));
+        System.out.println(trie.contains("cant"));
+        System.out.println(trie.contains("care"));
+    }
+
     public static void main(String[] args) {
-        traverseTrie();
+        deleteWordInTrie();
     }
 }

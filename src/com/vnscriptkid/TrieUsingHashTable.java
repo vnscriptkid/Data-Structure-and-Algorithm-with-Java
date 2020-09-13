@@ -20,6 +20,10 @@ public class TrieUsingHashTable {
             children.put(ch, new Node(ch));
         }
 
+        public void deleteNode(char ch) {
+            children.remove(ch);
+        }
+
         public Node getChildNode(char ch) {
             return children.get(ch);
         }
@@ -56,7 +60,7 @@ public class TrieUsingHashTable {
 
     public boolean contains(String word) {
         if (isEmpty())
-            throw new IllegalStateException();
+            return false;
         if (word.isEmpty())
             throw new IllegalArgumentException();
         Node current = root;
@@ -88,5 +92,24 @@ public class TrieUsingHashTable {
             traversePostOrder(child);
         }
         System.out.print(root.value);
+    }
+
+    public void delete(String word) {
+        delete(root, word, 0);
+    }
+
+    private void delete(Node root, String word, int index) {
+        if (index == word.length()) {
+            root.isEndOfWord = false;
+            return;
+        }
+        char currentChar = word.charAt(index);
+        Node childNode = root.getChildNode(currentChar);
+        if (childNode == null)
+            return;
+        delete(childNode, word, index + 1);
+        if (childNode.children.size() == 0 && !childNode.isEndOfWord) {
+            root.deleteNode(currentChar);
+        }
     }
 }

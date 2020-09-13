@@ -264,7 +264,23 @@ public class Main {
         System.out.println(trie.autoCompletion("car").toString());
     }
 
+    public static void useGraph() {
+        Graph graph = new Graph();
+        graph.addNode("Thanh");
+        graph.addNode("Bich");
+        graph.addNode("Cheo");
+        graph.addNode("Ahmed");
+        graph.addNode("Hien");
+        graph.addNode("Dung");
+        graph.addEdge("Thanh", "Bich");
+        graph.addEdge("Thanh", "Cheo");
+        graph.addEdge("Dung", "Thanh");
+        graph.removeEdge("Dung", "Thanh");
+        graph.addEdge("Ahmed", "Thanh");
+        graph.print();
+    }
+
     public static void main(String[] args) {
-        autoCompletion();
+        useGraph();
     }
 }

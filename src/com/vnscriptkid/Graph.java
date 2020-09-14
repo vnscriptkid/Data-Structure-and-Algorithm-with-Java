@@ -1,10 +1,12 @@
 package com.vnscriptkid;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
@@ -105,6 +107,29 @@ public class Graph {
             for (Node connectedNode : adjacencyList.get(nextNode)) {
                 if (!visitedNodes.contains(connectedNode))
                     stack.push(connectedNode);
+            }
+        }
+    }
+
+    public void bfsUsingQueue(String startingLabel) {
+        Set<Node> visitedNodes = new HashSet<>();
+        Node startingNode = nodes.get(startingLabel);
+        if (startingNode == null)
+            throw new IllegalArgumentException();
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(startingNode);
+        while (!queue.isEmpty()) {
+            Node nextNode = queue.remove();
+
+            if (visitedNodes.contains(nextNode))
+                continue;
+            
+            System.out.println(nextNode.label);
+            visitedNodes.add(nextNode);
+
+            for (Node connectedNode : adjacencyList.get(nextNode)) {
+                if (!visitedNodes.contains(connectedNode))
+                    queue.add(connectedNode);
             }
         }
     }

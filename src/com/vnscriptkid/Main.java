@@ -291,6 +291,7 @@ public class Main {
         graph.addEdge("D", "C");
         graph.addEdge("A", "C");
         graph.depthFirstSearch("A");
+        graph.dfsUsingStack("A");
     }
 
     public static void main(String[] args) {

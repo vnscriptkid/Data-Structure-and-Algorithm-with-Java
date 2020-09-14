@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 public class Graph {
     private class Node {
@@ -81,6 +82,30 @@ public class Graph {
         for (Node connectedNode : adjacencyList.get(currentNode)) {
             if (!visitedNodes.contains(connectedNode))
                 depthFirstSearch(connectedNode, visitedNodes);
+        }
+    }
+
+    public void dfsUsingStack(String startingLabel) {
+        Set<Node> visitedNodes = new HashSet<>();
+        Node startingNode = nodes.get(startingLabel);
+        if (startingNode == null)
+            throw new IllegalArgumentException();
+        Stack<Node> stack = new Stack<>();
+        stack.push(startingNode);
+        Node nextNode = null;
+        while (!stack.isEmpty()) {
+            nextNode = stack.pop();
+
+            if (visitedNodes.contains(nextNode))
+                continue;
+
+            System.out.println(nextNode.label);
+            visitedNodes.add(nextNode);
+
+            for (Node connectedNode : adjacencyList.get(nextNode)) {
+                if (!visitedNodes.contains(connectedNode))
+                    stack.push(connectedNode);
+            }
         }
     }
 }

@@ -2,8 +2,10 @@ package com.vnscriptkid;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Graph {
     private class Node {
@@ -64,6 +66,21 @@ public class Graph {
             if (adjacencyList.get(node).size() > 0) {
                 System.out.println(node + " is connected to " + adjacencyList.get(node).toString());
             }
+        }
+    }
+
+    public void depthFirstSearch(String startingLabel) {
+        Set<Node> visitedNodes = new HashSet<>();
+        Node startingNode = nodes.get(startingLabel);
+        depthFirstSearch(startingNode, visitedNodes);
+    }
+
+    private void depthFirstSearch(Node currentNode, Set<Node> visitedNodes) {
+        System.out.println(currentNode.label);
+        visitedNodes.add(currentNode);
+        for (Node connectedNode : adjacencyList.get(currentNode)) {
+            if (!visitedNodes.contains(connectedNode))
+                depthFirstSearch(connectedNode, visitedNodes);
         }
     }
 }

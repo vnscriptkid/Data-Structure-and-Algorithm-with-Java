@@ -133,4 +133,28 @@ public class Graph {
             }
         }
     }
+
+    public void topologicalSorting() {
+        Stack<Node> stack = new Stack<>();
+        Set<Node> visistedNodes = new HashSet<>();
+        for (Node node : adjacencyList.keySet()) {
+            DFS(node, stack, visistedNodes);
+        }
+        List<String> sortedList = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            sortedList.add(stack.pop().label);
+        }
+        System.out.println(sortedList.toString());
+    }
+
+    private void DFS(Node node, Stack<Node> stack, Set<Node> visistedNodes) {
+        if (visistedNodes.contains(node))
+            return;
+        visistedNodes.add(node);
+        for (Node connectedNode: adjacencyList.get(node)) {
+            if (!visistedNodes.contains(connectedNode))
+                DFS(connectedNode, stack, visistedNodes);
+        }
+        stack.push(node);
+    }
 }

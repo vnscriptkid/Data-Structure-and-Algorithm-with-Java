@@ -1,8 +1,10 @@
 package com.vnscriptkid;
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 
 public class Main {
 
@@ -320,7 +322,20 @@ public class Main {
         graph.topologicalSorting();
     }
 
+    public static void graphCycleDetection() {
+        Graph graph = new Graph();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addNode("D");
+        graph.addEdge("A", "B");
+        graph.addEdge("B", "C");
+        graph.addEdge("A", "C");
+        graph.addEdge("D", "A");
+        System.out.println("Has cycle: " + graph.cycleDetection());;
+    }
+
     public static void main(String[] args) {
-        useTopologicalSorting();
+        graphCycleDetection();
     }
 }

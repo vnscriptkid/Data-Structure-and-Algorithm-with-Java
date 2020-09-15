@@ -346,6 +346,20 @@ public class Main {
         graph.addEdge("A", "D", 2);
         graph.print();
     }
+    
+    public static void useWeightedGraphOOP() {
+        WeightedGraphOOP graph = new WeightedGraphOOP();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addNode("D");
+        graph.addEdge("A", "B", 3);
+        graph.addEdge("B", "D", 6);
+        graph.addEdge("C", "D", 1);
+        graph.addEdge("A", "C", 4);
+        graph.addEdge("A", "D", 2);
+        graph.print();
+    }
 
     public static void main(String[] args) {
         useWeightedGraph();

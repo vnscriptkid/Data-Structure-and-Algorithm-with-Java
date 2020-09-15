@@ -1,10 +1,8 @@
 package com.vnscriptkid;
 import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
-import java.util.Set;
 
 public class Main {
 
@@ -335,7 +333,21 @@ public class Main {
         System.out.println("Has cycle: " + graph.cycleDetection());;
     }
 
+    public static void useWeightedGraph() {
+        WeightedGraph graph = new WeightedGraph();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addNode("D");
+        graph.addEdge("A", "B", 3);
+        graph.addEdge("B", "D", 6);
+        graph.addEdge("C", "D", 1);
+        graph.addEdge("A", "C", 4);
+        graph.addEdge("A", "D", 2);
+        graph.print();
+    }
+
     public static void main(String[] args) {
-        graphCycleDetection();
+        useWeightedGraph();
     }
 }

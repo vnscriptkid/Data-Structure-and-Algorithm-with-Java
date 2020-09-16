@@ -1,11 +1,9 @@
 package com.vnscriptkid;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -37,6 +35,7 @@ public class WeightedGraphOOP {
 
         @Override
         public boolean equals(Object obj) {
+            if (obj == null) return false;
             Node other = (Node) obj;
             return this.label.equals(other.label);
         }
@@ -150,5 +149,43 @@ public class WeightedGraphOOP {
         for (Node node : distances.keySet()) {
             System.out.println(fromNode + " -> " + node + " = " + distances.get(node));
         }
+    }
+
+    public boolean hasCycle() {
+        Set<Node> visited = new HashSet<>();
+        Set<Node> visiting = new HashSet<>();
+        // loop all nodes
+        for (Node node : nodes.values()) {
+            if (visited.contains(node))
+                continue;
+            if (hasCycle(node, visiting, visited, null))
+                return true;
+        }
+        // next node should not be parent
+        // mark visited as pop out
+        return false;
+    }
+        
+    private boolean hasCycle(Node node, Set<Node> visiting, Set<Node> visited, Node parent) {
+        // save to visiting
+        visiting.add(node);
+        // traverse DFS:
+        for (Edge edge : node.getEdges()) {
+            Node neighborNode = edge.toNode;
+            // case 1: visited
+            // case 3: parent
+            if (neighborNode.equals(parent) || visited.contains(neighborNode))
+                continue;
+            // case 2: visiting
+            if (visiting.contains(neighborNode))
+                return true;
+            
+            if (hasCycle(neighborNode, visiting, visited, node))
+                return true;
+        }
+        visited.add(node);
+        visiting.remove(node);
+
+        return false;
     }
 }   

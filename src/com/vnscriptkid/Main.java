@@ -378,7 +378,18 @@ public class Main {
         graph.dijkstra("A");
     }
 
+    public static void checkUndirectedGraphHasCycle() {
+        WeightedGraphOOP graph = new WeightedGraphOOP();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addEdge("A", "B", 3);
+        graph.addEdge("B", "C", 2);
+        graph.addEdge("A", "C", 4);
+        System.out.println(graph.hasCycle());
+    }
+
     public static void main(String[] args) {
-        useDjikstra();
+        checkUndirectedGraphHasCycle();
     }
 }

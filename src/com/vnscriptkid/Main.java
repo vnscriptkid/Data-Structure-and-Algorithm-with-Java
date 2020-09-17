@@ -403,7 +403,13 @@ public class Main {
         graph.prim("A");
     }
 
+    public static void useBubbleSort() {
+        int[] numbers = {1,6,2,3,4,9,7,8};
+        BubbleSort sorter = new BubbleSort(numbers);
+        System.out.println(Arrays.toString(sorter.sort()));
+    }
+
     public static void main(String[] args) {
-        usePrimAlgorimthm();
+        useBubbleSort();
     }
 }

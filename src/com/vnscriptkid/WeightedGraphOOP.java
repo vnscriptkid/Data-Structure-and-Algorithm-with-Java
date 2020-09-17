@@ -85,28 +85,29 @@ public class WeightedGraphOOP {
         }
     }
 
+    class Entry {
+        Node toNode;
+        int distance;
+
+        public Entry(Node toNode, int distance) {
+            this.toNode = toNode;
+            this.distance = distance;
+        }
+
+        public Node getNode() {
+            return toNode;
+        }
+
+        public Integer getDistance() {
+            return distance;
+        }
+    }
+
     public void dijkstra(String fromNodeLabel) {
         Node fromNode = nodes.get(fromNodeLabel);
         if (fromNode == null)
             throw new IllegalArgumentException();
-        class Entry {
-            Node toNode;
-            int distance;
 
-            public Entry(Node toNode, int distance) {
-                this.toNode = toNode;
-                this.distance = distance;
-            }
-
-            public Node getNode() {
-                return toNode;
-            }
-
-            public Integer getDistance() {
-                return distance;
-            }
-        }
-        
         Set<Node> visited = new HashSet<>();
         Map<Node, Integer> distances = new HashMap<>(); // <toNode, distance>
         Map<Node, Node> prevNodes = new HashMap<>(); // <toNode, throughNode>
@@ -187,5 +188,39 @@ public class WeightedGraphOOP {
         visiting.remove(node);
 
         return false;
+    }
+
+    public void prim(String startingLabel) {
+        Node startingNode = nodes.get(startingLabel);
+        if (startingLabel == null)
+            throw new IllegalArgumentException();
+
+        WeightedGraphOOP graph = new WeightedGraphOOP();
+        Set<Node> visisted = new HashSet<>();
+        PriorityQueue<Entry> pathsToNeighbors = new PriorityQueue<>(
+                Comparator.comparingInt(Entry::getDistance)
+            );
+
+        Node currentNode = startingNode;        
+        while (true) {
+            visisted.add(currentNode);
+            graph.addNode(currentNode.label);
+            if (visisted.size() == nodes.size())
+                break;
+            for (Edge edge : currentNode.getEdges()) {
+                Node neighbor = edge.toNode;
+
+                if (visisted.contains(neighbor))
+                    continue;
+
+                pathsToNeighbors.add(new Entry(neighbor, edge.weight));
+            }
+            Entry nextEntry = pathsToNeighbors.poll();
+            pathsToNeighbors.clear();
+            graph.addNode(nextEntry.toNode.label);
+            graph.addEdge(currentNode.label, nextEntry.toNode.label, nextEntry.distance);
+            currentNode = nextEntry.toNode;
+        }
+        graph.print();
     }
 }   

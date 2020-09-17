@@ -389,7 +389,21 @@ public class Main {
         System.out.println(graph.hasCycle());
     }
 
+    public static void usePrimAlgorimthm() {
+        WeightedGraphOOP graph = new WeightedGraphOOP();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addNode("D");
+        graph.addEdge("A", "B", 3);
+        graph.addEdge("A", "C", 1);
+        graph.addEdge("B", "C", 2);
+        graph.addEdge("B", "D", 4);
+        graph.addEdge("C", "D", 5);
+        graph.prim("A");
+    }
+
     public static void main(String[] args) {
-        checkUndirectedGraphHasCycle();
+        usePrimAlgorimthm();
     }
 }

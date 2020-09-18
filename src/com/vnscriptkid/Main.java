@@ -409,7 +409,12 @@ public class Main {
         System.out.println(Arrays.toString(sorter.sort()));
     }
 
+    public static void useSelectionSort() {
+        int[] numbers = {1,6,2,3,4,9,7,8};
+        System.out.println(Arrays.toString(new SelectionSort().sort(numbers)));
+    }
+
     public static void main(String[] args) {
-        useBubbleSort();
+        useSelectionSort();
     }
 }

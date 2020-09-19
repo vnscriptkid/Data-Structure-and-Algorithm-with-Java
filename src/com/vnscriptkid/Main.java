@@ -419,7 +419,13 @@ public class Main {
         System.out.println(Arrays.toString(new InsertionSort().sort(numbers)));
     }
 
+    public static void useMergeSort() {
+        int[] numbers = {1,6,2,3,4,9,7};
+        MergeSort sorter = new MergeSort(numbers);
+        System.out.println(Arrays.toString(sorter.sort()));
+    }
+
     public static void main(String[] args) {
-        useInsertionSort();
+        useMergeSort();
     }
 }

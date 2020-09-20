@@ -425,7 +425,12 @@ public class Main {
         System.out.println(Arrays.toString(sorter.sort()));
     }
 
+    public static void useQuickSort() {
+        int[] numbers = {1,25,2,18,4,9,7,8,23,14,19};
+        System.out.println(Arrays.toString(new QuickSort().sort(numbers)));
+    }
+
     public static void main(String[] args) {
-        useMergeSort();
+        useQuickSort();
     }
 }

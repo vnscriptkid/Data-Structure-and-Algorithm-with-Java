@@ -441,7 +441,15 @@ public class Main {
         System.out.println(new LinearSearch().find(numbers, 100));
     }
 
+    public static void useBinarySearch() {
+        int[] numbers = {1,5,6,8,9,10,15,17};
+        System.out.println(new BinarySearch().findUsingRecursion(numbers, 15));
+        System.out.println(new BinarySearch().findUsingRecursion(numbers, 5));
+        System.out.println(new BinarySearch().findUsingLoop(numbers, 15));
+        System.out.println(new BinarySearch().findUsingLoop(numbers, 5));
+    }
+
     public static void main(String[] args) {
-        useLinearSearch();
+        useBinarySearch();
     }
 }

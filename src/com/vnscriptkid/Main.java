@@ -435,7 +435,13 @@ public class Main {
         System.out.println(Arrays.toString(new CountSort().sort(numbers)));
     }
 
+    public static void useLinearSearch() {
+        int[] numbers = {1,6,2,9,3,5,4};
+        System.out.println(new LinearSearch().find(numbers, 3));
+        System.out.println(new LinearSearch().find(numbers, 100));
+    }
+
     public static void main(String[] args) {
-        useCountSort(); 
+        useLinearSearch();
     }
 }

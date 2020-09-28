@@ -79,7 +79,7 @@ public class Main {
     }
 
     public static void reverseAQueue() {
-        Queue queue = new ArrayDeque<Integer>();
+        Queue<Integer> queue = new ArrayDeque<Integer>();
         queue.addAll(List.of(1,2,3));
         System.out.println(queue);
         ReverseQueue.reverse(queue);
@@ -449,7 +449,34 @@ public class Main {
         System.out.println(new BinarySearch().findUsingLoop(numbers, 5));
     }
 
+    public static void useStringUtils() {
+        System.out.println(StringUtils.countVowels("nguyEn trung thanh "));
+        System.out.println(StringUtils.reverseString("nguyEn trung thanh"));
+        System.out.println(StringUtils.reverseWords("I miss her"));
+        System.out.println(StringUtils.reverseWordsSecond("I miss her"));
+        System.out.println(StringUtils.areRotations("ABC", "CAB"));
+        System.out.println(StringUtils.areRotations("ABC", "CBA"));
+        System.out.println(StringUtils.areRotations(null, "CBA"));
+        System.out.println(StringUtils.removeDuplicates("abcadedf"));
+        System.out.println(StringUtils.mostRepeatedChar("nguyentrungthanh"));
+        System.out.println(StringUtils.mostRepeatedCharAnotherImpl("nguyentrungthanh"));
+        System.out.println(StringUtils.capitalize("  nguyen  trung thanh"));
+        System.out.println(StringUtils.capitalizeAnotherImple("  nguyen  trung thanh"));
+        System.out.println(StringUtils.capitalizeAnotherImple(" "));
+        System.out.println(StringUtils.capitalizeAnotherImple(null));
+        System.out.println(StringUtils.areAnagram("ABC", "CBA"));
+        System.out.println(StringUtils.areAnagram("ABC", "CBD"));
+        System.out.println(StringUtils.areAnagramBetter("ABC", "CBD"));
+        System.out.println(StringUtils.areAnagramBetter("ABC", "BAC"));
+        System.out.println(StringUtils.isPalindrome("MADAM"));
+        System.out.println(StringUtils.isPalindrome("MADAMS"));
+        System.out.println(StringUtils.isPalindromeSecond("MADAM"));
+        System.out.println(StringUtils.isPalindromeSecond("MADAMS"));
+        System.out.println(StringUtils.isPalindromeThird("MADAM"));
+        System.out.println(StringUtils.isPalindromeThird("MADAMS"));
+    }
+
     public static void main(String[] args) {
-        useBinarySearch();
+        useStringUtils();
     }
 }
